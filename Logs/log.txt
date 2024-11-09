@@ -1,0 +1,77 @@
+Request arrived: 2024/10/25 下午 07:16:19
+Request arrived: 2024/10/25 下午 07:16:48
+Request arrived: 2024/10/25 下午 07:17:08
+Request arrived: 2024/10/25 下午 07:17:31
+Request arrived: 2024/10/25 下午 07:22:48
+Request arrived: 2024/10/25 下午 07:23:23
+Request arrived: 2024/10/25 下午 07:24:01
+Request arrived: 2024/10/25 下午 07:24:51
+Request arrived: 2024/10/25 下午 07:33:04
+Request arrived: 2024/10/25 下午 08:08:07
+Request arrived: 2024/10/25 下午 08:08:33
+Request arrived: 2024/10/25 下午 08:11:11
+Request arrived: 2024/10/25 下午 08:12:44
+Request arrived: 2024/10/25 下午 08:24:55
+Request arrived: 2024/10/25 下午 08:28:56
+Request arrived: 2024/10/25 下午 08:30:42
+Request arrived: 2024/10/25 下午 08:34:44
+Request arrived: 2024/10/25 下午 08:39:02
+Request arrived: 2024/10/25 下午 08:39:32
+Request arrived: 2024/10/25 下午 08:39:54
+Request arrived: 2024/10/25 下午 08:40:22
+Request arrived: 2024/10/25 下午 08:41:49
+Request arrived: 2024/10/25 下午 08:42:38
+Request arrived: 2024/10/25 下午 08:48:05
+Request arrived: 2024/10/25 下午 08:48:35
+Request arrived: 2024/10/25 下午 08:53:56
+Request arrived: 2024/10/25 下午 08:59:34
+Request arrived: 2024/10/25 下午 09:00:16
+Request arrived: 2024/10/25 下午 09:01:26
+Request arrived: 2024/10/25 下午 09:01:33
+Request arrived: 2024/10/25 下午 09:08:02
+Request arrived: 2024/10/25 下午 09:08:38
+Request arrived: 2024/10/25 下午 09:16:41
+Request arrived: 2024/10/25 下午 09:16:45
+Request arrived: 2024/10/25 下午 09:19:23
+Request arrived: 2024/10/25 下午 09:21:43
+Request arrived: 2024/10/25 下午 09:29:05
+Request arrived: 2024/10/25 下午 09:32:19
+Request arrived: 2024/10/25 下午 09:33:18
+Request arrived: 2024/10/25 下午 09:36:16
+Request arrived: 2024/10/25 下午 09:39:41
+Request arrived: 2024/10/25 下午 09:43:18
+Request arrived: 2024/10/25 下午 09:43:54
+Request arrived: 2024/10/25 下午 09:48:43
+Request arrived: 2024/10/25 下午 09:49:04
+Request arrived: 2024/10/25 下午 09:49:36
+Request arrived: 2024/10/25 下午 09:50:13
+Request arrived: 2024/10/25 下午 09:51:05
+Request arrived: 2024/10/25 下午 09:51:25
+Request arrived: 2024/10/25 下午 09:51:53
+Request arrived: 2024/10/25 下午 09:53:40
+Request arrived: 2024/10/25 下午 09:59:19
+Request arrived: 2024/10/25 下午 10:07:12
+Request arrived: 2024/10/25 下午 10:07:33
+Request arrived: 2024/10/25 下午 10:12:53
+Request arrived: 2024/10/25 下午 10:13:20
+Request arrived: 2024/10/25 下午 10:14:51
+Request arrived: 2024/10/25 下午 10:17:25
+Request arrived: 2024/10/25 下午 10:47:52
+Database error: Cannot insert the value NULL into column 'userid', table 'Project_db.dbo.savescore'; column does not allow nulls. UPDATE fails.
+The statement has been terminated.
+Request arrived: 2024/10/25 下午 11:08:12
+UserID from session: guest
+Received JSON: {"CostEffectiveness":5,"Clean":4,"Entertainment":3,"Convenience":2,"Others":1}
+Database error: The MERGE statement conflicted with the FOREIGN KEY constraint "FK_savescore_account". The conflict occurred in database "account", table "dbo.accountInformation", column 'userid'.
+The statement has been terminated.
+Request arrived: 2024/10/25 下午 11:08:13
+UserID from session: guest
+Received JSON: {"CostEffectiveness":5,"Clean":4,"Entertainment":3,"Convenience":2,"Others":1}
+Database error: The MERGE statement conflicted with the FOREIGN KEY constraint "FK_savescore_account". The conflict occurred in database "account", table "dbo.accountInformation", column 'userid'.
+The statement has been terminated.
+Request arrived: 2024/10/25 下午 11:11:13
+UserID from session: 
+Received JSON: {"CostEffectiveness":5,"Entertainment":4,"Clean":3,"Convenience":2,"Others":1}
+Request arrived: 2024/10/25 下午 11:12:37
+UserID from session: 
+Received JSON: {"CostEffectiveness":5,"Convenience":4,"Others":3,"Entertainment":2,"Clean":1}

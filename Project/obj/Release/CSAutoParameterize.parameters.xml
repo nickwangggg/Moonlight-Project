@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="accountConnectionString-Web.config Connection String" description="accountConnectionString 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="Server=tcp:dotnetdbserver.database.windows.net,1433;&#xD;&#xA;                           Initial Catalog=Project_db;&#xD;&#xA;                           Persist Security Info=False;&#xD;&#xA;                           User ID=duke3;Password=Abc123456;&#xD;&#xA;                           MultipleActiveResultSets=True;&#xD;&#xA;                           Encrypt=True;&#xD;&#xA;                           TrustServerCertificate=False;&#xD;&#xA;                           Connection Timeout=30;&#xD;&#xA;                           Max Pool Size=100;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\AllEnd\\Project\\Project\\Project\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='accountConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

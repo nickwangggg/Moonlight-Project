@@ -1,0 +1,151 @@
+﻿body {
+}
+
+#userForm {
+    background-color: rgba(218, 237, 231, 1); /* 背景顏色 */
+    padding: 7px; /* 增加內邊距 */
+    border-radius: 5px; /* 圓角 */
+    box-shadow: 0 4px 8px #d3d3d3; /* 添加陰影 */
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #d3d3d3; /* 淺灰色 */
+    margin: 10px 0; /* 上下留白 */
+}
+.custom-input {
+    background-color: rgb(232, 236, 244); /* 背景顏色 */
+    border: 1px solid transparent; /* 邊框設置為透明 */
+    font-size: 14px;
+    font-weight: bold; /* 設置粗體 */
+    padding: 10px;
+    width: 100%;
+    display: block;
+    border-radius: 25px; /* 圓角 */
+    padding-left: 20px; /* 增加左邊內邊距 */
+}
+.custom-btn {
+    width: 150px; /* 設置按鈕的寬度 */
+    height: 40px; /* 設置按鈕的高度 */
+    font-size: 14px; /* 調整字體大小 */
+    padding: 5px; /* 設置內邊距 */
+}
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.notice-label {
+    display: block;
+    margin-top: -10px; /* 調整與表格之間的距離 */
+    font-size: 16px;
+    font-weight: bold;
+    color: red; 
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+
+/* 固定數字列表的樣式 */
+.fixed-number {
+    padding-left: 0;
+    list-style: none;
+}
+
+.fixed-number li {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Drop Zone 的容器樣式 */
+.dropzone {
+    padding-left: 0;
+}
+
+/* Drop Box 樣式 */
+.drop-box {
+    height: 60px; /* 每個 Box 的高度 */
+    border: 2px dashed #008cba;
+    background-color: #e0f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+    position: relative; /* 為了放置覆蓋的內容 */
+    overflow: hidden; /* 避免內容溢出 */
+}
+
+/* 當選項進入時，隱藏原數字 */
+.drop-box .sortable-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+    /* 滑鼠移入 drop box 時的效果 */
+    .drop-box.ui-droppable-hover {
+        background-color: #b2ebf2;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+/* 可拖曳項目 */
+.sortable-item {
+    background-color: #fafafa;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: move;
+    height: 60px;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+
+/* 防止最後一個元素增加間距 */
+.sortable-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 拖曳中的項目效果 */
+.sortable-item.being-dragged {
+    opacity: 0.6; /* 半透明效果 */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+    transform: scale(1.05); /* 略微放大 */
+}
+
+/* 隱藏的項目 */
+.sortable-item.hidden {
+    display: none;
+}
+
+/* 鎖定的項目 */
+.locked {
+    pointer-events: none; /* 禁止點擊 */
+    opacity: 0.6; /* 半透明 */
+}
+
+/* 表格樣式調整 */
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 控制可拖曳區域的寬度 */
+#sortable-list {
+    width: 100%; /* 撐滿父容器 */
+    max-width: 400px; /* 可依需要調整最大寬度 */
+    margin: 0 auto; /* 置中 */
+}
+
+

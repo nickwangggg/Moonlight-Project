@@ -1,0 +1,19 @@
+# 忽略 node_modules（如果有）
+node_modules/
+
+# 忽略環境變數
+.env
+
+# 忽略日誌文件
+*.log
+
+# 忽略編譯文件
+*.dll
+*.exe
+
+# 忽略 IDE 設定
+.vscode/
+.idea/
+
+# 忽略其他敏感文件（例如憑證、密鑰等）
+secret-key.json

@@ -1,0 +1,253 @@
+﻿.homepage-content .container {
+    /* 針對 homepage 的調整 */
+}
+
+.container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#main-content {
+    width: 100%; /* 確保內容區域寬度填滿 */
+    max-width: none; /* 取消任何最大寬度限制 */
+    margin: 0;
+    padding: 0;
+}
+
+.image-class1 {
+    margin-top: -24px; /* 移除圖片上方的間距 */
+    padding-top: 0; /* 移除圖片上方的內邊距 */
+    display: block; /* 保證圖片為塊狀元素 */
+}
+
+/* 排序區域 (AI 選房) */
+.dropzone {
+    padding-left: 0;
+}
+
+/* Drop Box 樣式 */
+.drop-box {
+    height: 60px;
+    border: 2px dashed #008cba;
+    background-color: #e0f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 當選項進入時，隱藏原數字 */
+.drop-box .sortable-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 滑鼠移入 Drop Box 時的效果 */
+.drop-box.ui-droppable-hover {
+    background-color: #b2ebf2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 可拖曳項目 */
+.sortable-item {
+    background-color: #fafafa;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: move;
+    height: 60px;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+
+/* 拖曳中的項目效果 */
+.sortable-item.being-dragged {
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* 日期選擇區域 */
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.date-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    width: 150px; /* 固定寬度確保對齊 */
+}
+
+.date-input {
+    padding: 10px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+/* 按鈕置中區域 */
+.center-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* 按鈕樣式 */
+.large-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    width: 200px;
+    height: 60px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .large-button:hover {
+        background-color: #45a049;
+    }
+
+/* 隱藏的項目 (避免額外間距) */
+.sortable-item.hidden {
+    display: none;
+}
+/* 調整 h5 的樣式 */
+.sorting-title {
+    margin-top: -120px !important; /* 調整與上方元件的距離 */
+    margin-bottom: 10px; /* 調整與上方元件的距離 */
+    text-align: center; /* 將文字置中 */
+    font-size: 24px; /* 可根據需要調整文字大小 */
+    font-weight: bold; /* 使文字加粗 */
+}
+/* 外層容器：讓內容更靠近上下邊緣 */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直置中 */
+    align-items: center; /* 水平置中 */
+    min-height: 50vh; /* 減少最小高度 */
+    margin: 0; /* 移除外部 margin */
+    padding: 10px 0; /* 減少內部 padding */
+    gap: 10px; /* 調整內部區塊的間距 */
+    box-sizing: border-box;
+    margin-bottom:-100px;
+}
+
+/* 排序區域的容器 */
+.sorting-container {
+    display: flex;
+    justify-content: space-between; /* 均勻分佈列表 */
+    align-items: flex-start; /* 頂端對齊 */
+    gap: 15px; /* 列表間距 */
+    width: 100%;
+    max-width: 700px; /* 適當減小寬度，避免分散 */
+    margin-bottom: -20px;
+}
+
+/* 列表樣式 */
+.dropzone, #sortable-list {
+    width: 45%; /* 每個列表各佔一半空間 */
+}
+/* 按鈕容器 */
+/* 調整按鈕區域與上方內容的距離 */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* 按鈕間距 */
+    margin-bottom:-40px;
+}
+/* 按鈕的樣式 */
+.button-container button {
+    width: 140px; /* 統一按鈕寬度 */
+}
+
+#ai-selection-result {
+    margin-top: -100px !important; /* 控制與按鈕的間距 */
+}
+/* AI 預測結果容器的樣式 */
+#ai-image-container {
+    display: none; /* 預設不顯示 */
+    margin-top: 0px; /* 與上方區塊的距離 */
+    text-align: center; /* 圖片置中 */
+    max-width: 80%; /* 限制圖片的最大寬度 */
+    margin: 0 auto; /* 圖片置中 */
+}
+/* 排序區域和按鈕容器的初始狀態為顯示 */
+.sorting-container, .button-container, .sorting-title {
+    display: flex; /* 確保初始顯示 */
+}
+
+img {
+    max-width: 100%; /* 確保圖片不會超出容器寬度 */
+    height: auto; /* 保持圖片比例 */
+    display: block; /* 去除圖片底部空白間距 */
+    margin: 0 auto; /* 圖片置中 */
+}
+
+
+/* 調整在大螢幕上的文字間距與大小 */
+@media (min-width: 768px) {
+    .sorting-title {
+        font-size: 28px;
+        margin-top: -50px;
+    }
+
+    #ai-selection-result {
+        font-size: 26px;
+        margin-top: 0;
+    }
+}
+/* 小螢幕上的調整 */
+@media (max-width: 767px) {
+    .sorting-title {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    #ai-selection-result {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+}
+
+/* 新增的內容*/
+.homepage-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.content-area {
+    background: rgba(218,237,231,255);
+    padding: 20px;
+    text-align: center;
+}

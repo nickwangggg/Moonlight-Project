@@ -1,0 +1,224 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Project.Site1" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Master Page</title>
+<!-- 引入 Bootstrap 5.3.0 CSS 以獲取響應式樣式和預設樣式 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- 引入 Bootstrap JavaScript 套件以實現互動功能 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- 引入 jQuery 以簡化 JavaScript 操作 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 引入外部 CSS -->
+<link rel="stylesheet" type="text/css" href="~/Content/Site1.css" />
+<%--允許子頁面自定義 head 部分，如添加 CSS、JavaScript，或者定義特殊頁面標題--%>
+<asp:ContentPlaceHolder ID="head" runat="server">
+</asp:ContentPlaceHolder>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var originalSrc = '<%= ResolveUrl("~/Content/Images/logodefault.png") %>';
+        var hoverSrc = '<%= ResolveUrl("~/Content/Images/logo_green.png") %>';
+
+        // 使用 jQuery 來選擇 img 標籤
+        $("#Image1").hover(
+            function () {
+                $(this).attr("src", hoverSrc);
+            },
+            function () {
+                $(this).attr("src", originalSrc);
+            }
+        );
+    });
+</script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<!-- 公用的功能區域 -->
+<div id="header">
+    <!-- 左側 Logo 區域 -->
+    <div id="logo">
+        <asp:HyperLink ID="logoLink" runat="server" NavigateUrl="~/homepage.aspx">
+            <img src='<%= ResolveUrl("~/Content/Images/logodefault.png") %>' id="Image1" alt="Icon" class="icon" />
+        </asp:HyperLink>
+    </div>
+
+    <!-- 右側導航鏈接 -->
+    <div id="nav-links">
+        <asp:HyperLink ID="about" runat="server" CssClass="customer-selection-link" NavigateUrl="~/introduction.aspx">關於日光</asp:HyperLink>
+        <asp:HyperLink ID="roomtype" runat="server" CssClass="customer-selection-link" NavigateUrl="#" data-bs-toggle="modal" data-bs-target="#roomModal"> 
+            房型
+        </asp:HyperLink>
+        <asp:HyperLink ID="booking" runat="server" CssClass="customer-selection-link orange-link" NavigateUrl="~/registered_user/booking.aspx">即刻預定</asp:HyperLink>
+        <asp:HyperLink ID="connection" runat="server" CssClass="customer-selection-link" NavigateUrl="~/CustermerService.aspx">聯絡資訊</asp:HyperLink>
+        <% if (Session["UserName"] == null) { %>
+            <!-- 未登入狀態顯示登入鏈接 -->
+            <asp:HyperLink ID="login" runat="server" CssClass="customer-selection-link text-white" NavigateUrl="~/login.aspx">登入</asp:HyperLink>
+        <% } else { %>
+            <!-- 已登入狀態顯示使用者名稱和下拉選單 -->
+            <div id="loggedInSection" class="d-flex align-items-center gap-20">
+                <span class="customer-selection-link">Hi, <%: Session["UserName"] %></span>
+                <div class="dropdown">
+                    <a href="#" class="customer-selection-link" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src='<%= ResolveUrl("~/Content/Images/login.png") %>' alt="User Icon" class="icon" />
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href='<%= ResolveUrl("~/registered_user/AccountManagement.aspx") %>'>帳戶管理</a></li>
+                        <li><a class="dropdown-item" href='<%= ResolveUrl("~/registered_user/Logout.aspx") %>'>登出</a></li>
+
+                        <% if (Session["Permission"] != null && Session["Permission"].ToString() == "4") { %>
+                            <!-- 當 Permission 為 4 時顯示 -->
+                            <li><a class="dropdown-item" href='<%= ResolveUrl("~/registered_user/RoomManager.aspx") %>'>訂房管理</a></li>
+                            <li><a class="dropdown-item" href='<%= ResolveUrl("~/registered_user/ResponseCheck.aspx") %>'>用戶評價和意見回饋區</a></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<!-- 子頁面內容區域 -->
+<div id="main-content" class="container my-4 flex-fill">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="roomModal" tabindex="-1" aria-labelledby="roomModalLabel" aria-hidden="true">
+    <div class="modal-dialog custom-modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title w-100 text-center" id="roomModalLabel">房型選單</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 使用 Flexbox 來自動排列 -->
+                <div class="menu-column">
+                    <h4 class="text-brown flex-heading">A館</h4>
+                    <hr>
+                    <div class="room-item">
+                        <span class="room-type">精緻套房</span><br>
+                        <a href='<%= ResolveUrl("~/TypeA.aspx") %>' class="room-detail-checked">香水百合</a><br>
+                        <a href='<%= ResolveUrl("~/TypeC.aspx") %>' class="room-detail-checked">天使薔薇</a>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">豪華套房</span><br>
+                        <span class="room-detail">水芙蓉</span><br>
+                        <span class="room-detail">海芋</span><br>
+                        <span class="room-detail">一射梅</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">閣樓套房</span><br>
+                        <span class="room-detail">雞蛋花</span><br>
+                    </div>
+                </div>
+                <div class="menu-column">
+                    <h4 class="text-brown flex-heading">B館</h4>
+                    <hr>
+                     <div class="room-item">
+                        <span class="room-type">豪華套房</span><br>
+                        <a href='<%= ResolveUrl("~/TypeB.aspx") %>' class="room-detail-checked">向日葵</a><br>
+                        <a href='<%= ResolveUrl("~/TypeD.aspx") %>' class="room-detail-checked">蝴蝶蘭</a>
+                    </div>
+                </div>
+                <div class="menu-column">
+                    <h4 class="text-brown flex-heading">C館</h4>
+                    <hr>
+                    <div class="room-item">
+                        <span class="room-type">豪華套房</span><br>
+                        <span class="room-detail">常春藤</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">尊爵套房</span><br>
+                        <span class="room-detail">夜來香</span><br>
+                        <span class="room-detail">紫藤</span><br>
+                    </div>
+                    <div class="room-detail">Coming Soon~Opening in 2025</div>
+                </div>
+                <div class="menu-column">
+                    <h4 class="text-brown flex-heading">D館</h4>
+                    <hr>
+                    <div class="room-item">
+                        <span class="room-type">庭園套房</span><br>
+                        <span class="room-detail">掌葉楓</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">花園套房</span><br>
+                        <span class="room-detail">白橡木</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">尊爵套房</span><br>
+                        <span class="room-detail">虎梨花</span><br>
+                        <span class="room-detail">紫光檀</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">豪華套房</span><br>
+                        <span class="room-detail">秤星樹</span><br>
+                        <span class="room-detail">松羅檜</span><br>
+                    </div>
+                </div>
+                <div class="menu-column">
+                    <h4 class="text-brown flex-heading">E館</h4>
+                    <hr>
+                    <div class="room-item">
+                        <span class="room-type">花園套房</span><br>
+                        <span class="room-detail">迷迭香</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">花園套房</span><br>
+                        <span class="room-detail">檸檬薄荷</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">精緻套房</span><br>
+                        <span class="room-detail">彩葉芋</span><br>
+                        <span class="room-detail">蔓綠絨</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">豪華套房</span><br>
+                        <span class="room-detail">龜背芋</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">觀日套房</span><br>
+                        <span class="room-detail">黃金葛</span><br>
+                    </div>
+                    <div class="room-item">
+                        <span class="room-type">觀星套房</span><br>
+                        <span class="room-detail">銀星</span><br>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- 共用的 Footer 區域 -->
+<div id="footer" class="bg-dark text-white p-3 text-center mt-auto">
+    <p>© 2024 日光旅店. 保留所有權利.</p>
+    
+    <div class="contact-title">聯絡我們</div>
+
+    <div class="icon-container">
+        <a href="https://www.facebook.com/LOHERB.TW/" target="_blank">
+            <img src="https://careshop.com.tw/wp-content/uploads/2021/04/png-clipart-facebook-logo-facebook-messenger-logo-social-media-icon-facebook-icon-blue-text-e1618984794551.png" alt="Facebook" class="icon-link">
+        </a>
+
+        <a href="https://www.instagram.com/loherb_yilan/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="icon-link">
+        </a>
+
+        <a href="https://www.youtube.com/channel/UCACSw7tK8uMz8j-CFGa2NfQ" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/YouTube_icon_%282013-2017%29.png/320px-YouTube_icon_%282013-2017%29.png" alt="Youtube" class="icon-link">
+        </a>
+
+        <a href="https://line.me/R/ti/p/%40xye4557v" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" alt="Line" class="icon-link">
+        </a>
+    </div>
+    <br>
+</div>
+</body>
+</html>
