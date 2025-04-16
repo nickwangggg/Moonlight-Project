@@ -1,7 +1,7 @@
 
 # Moonlight-Project
 
-[訪問網站](https://moomlight.azurewebsites.net/homepage)
+[訪問網站](https://moomlight.azurewebsites.net/homepage)  (因雲端空間需要收費,暫時關閉)
 
 月光專案
 
